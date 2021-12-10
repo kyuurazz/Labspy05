@@ -165,6 +165,34 @@ else:
          print(f"Data {nama} tidak ditemukan!") 
 ```
 
+#### Cari Data()
+1) Apabila `Dict Data_Mahasiswa` masih kosong maka akan memanggil function `tidakAdaData`
+```python
+def cari():
+    print("Cari Data Mahasiswa berdasarkan nama")
+    if len(Data_Mahasiswa) <= 0:  
+        tidakAdaData()
+```
+
+2. Program Cari Data Dijalankan
+- Memasukan nama sebagai `key` data yang ingin dicari
+- Jika salah memasukan nama ,maka akan mengeluarkan "data `nama` tidak ditemukan!"
+- Ketika nama sudah benar maka akan muncul data yang dicari
+```python
+else:
+     nama = input("Masukan nama : ")
+     if(nama in Data_Mahasiswa):
+         no = 1            
+         print(f"\nNama        : {nama}")
+         print(f"NIM         : {Data_Mahasiswa[nama][0]}")
+         print(f"Nilai Tugas : {Data_Mahasiswa[nama][1]}")
+         print(f"Nilai UTS   : {Data_Mahasiswa[nama][2]}")
+         print(f"Nilai UAS   : {Data_Mahasiswa[nama][3]}")                  
+         print(f"Nilai Akhir : {Data_Mahasiswa[nama][4]}")        
+     else:
+         print(f"Data {nama} tidak ditemukan!") 
+```
+
 #### Menu
 - Menggunakan infinite loop sampai loopnya jadi false
 - Apabila salah memasukkkan inputan maka akan muncul "Menu 'menu' tidak ada!"
@@ -176,7 +204,7 @@ while loop:
     print(71*"-")
     print(25*"-", "Program Input Nilai", 25*"-")
     print(71*"-")
-    menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (K)eluar]: ")
+    menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (C)ari, (K)eluar]: ")
     print()
 
     if menu == "T" or menu == "t":     
@@ -190,6 +218,9 @@ while loop:
 
     elif menu == "H" or menu == "h":
         hapus()
+
+    elif menu == "C" or menu == "c":
+        cari()
 
     elif menu == "K" or menu == "k":
         print("Program selesai, Terima Kasih")

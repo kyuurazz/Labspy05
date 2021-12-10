@@ -91,13 +91,31 @@ def hapus():
         else:
             print(f"Data {nama} tidak ditemukan!")
 
+def cari():
+    print("Cari Data Mahasiswa berdasarkan nama")
+    if len(Data_Mahasiswa) <= 0:  
+        tidakAdaData()
+        
+    else:
+        nama = input("Masukan nama : ")
+        if(nama in Data_Mahasiswa):
+            no = 1            
+            print(f"\nNama        : {nama}")
+            print(f"NIM         : {Data_Mahasiswa[nama][0]}")
+            print(f"Nilai Tugas : {Data_Mahasiswa[nama][1]}")
+            print(f"Nilai UTS   : {Data_Mahasiswa[nama][2]}")
+            print(f"Nilai UAS   : {Data_Mahasiswa[nama][3]}")                  
+            print(f"Nilai Akhir : {Data_Mahasiswa[nama][4]}")        
+        else:
+            print(f"Data {nama} tidak ditemukan!") 
+
 loop = True
 while loop:
     print()
     print(71*"-")
     print(25*"-", "Program Input Nilai", 25*"-")
     print(71*"-")
-    menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (K)eluar]: ")
+    menu = input("[(T)ambah, (L)ihat, (U)bah, (H)apus, (C)ari, (K)eluar]: ")
     print()
 
     if menu == "T" or menu == "t":     
@@ -111,6 +129,9 @@ while loop:
 
     elif menu == "H" or menu == "h":
         hapus()
+
+    elif menu == "C" or menu == "c":
+        cari()
 
     elif menu == "K" or menu == "k":
         print("Program selesai, Terima Kasih")
